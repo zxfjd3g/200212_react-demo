@@ -7,14 +7,14 @@
         npm install @babel/preset-react -D  // jsx=>js
         npm install @babel/plugin-syntax-class-properties  //解析类属性
     5). 修改React相关的webpack配置
-    babel的配置
-        test: /\.jsx?$/, // 能处理js和jsx文件
-        presets: [
-            '@babel/preset-env',  // ES6==>ES5
-            '@babel/preset-react', // jsx ==> js
-        ],
-    引入模块省略.jsx的配置 
-        extensions: [".js", '.jsx', ".json"]
+	    babel的配置
+	        test: /\.jsx?$/, // 能处理js和jsx文件
+	        presets: [
+	            '@babel/preset-env',  // ES6==>ES5
+	            '@babel/preset-react', // jsx ==> js
+	        ],
+	    引入模块省略.jsx的配置 
+	        extensions: [".js", '.jsx', ".json"]
 
 
 ## 组件化编码的基本流程
@@ -29,7 +29,7 @@
 		2.交互
 
 
-## 编码功能说明列表
+## 编码功能列表
     1---React Helloworld
     2---jsx的理解和使用
     3---定义并使用组件
