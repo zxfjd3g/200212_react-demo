@@ -13,6 +13,9 @@
 	            '@babel/preset-env',  // ES6==>ES5
 	            '@babel/preset-react', // jsx ==> js
 	        ],
+            plugins: [
+                '@babel/plugin-syntax-class-properties'
+            ]
 	    引入模块省略.jsx的配置 
 	        extensions: [".js", '.jsx', ".json"]
 
@@ -27,6 +30,18 @@
 				名称: todos
 				保存在哪个组件? 看是哪个组件需要还是哪些组件需要
 		2.交互
+
+## 交互功能
+    1) Header
+    2) Item
+    3) Footer
+    状态数据在哪个组件, 更新状态数据的行为(函数)就应该定义在哪个组件
+
+## 更新状态(state/data)数据
+	vue中: 直接更新目标数据即可: this.xxx = value
+	React中:
+		必须通过this.setState({xxx: value})来更新
+		不要直接修改state数据
 
 
 ## 编码功能列表
@@ -43,3 +58,8 @@
     11---封装函数处理多个输入框的数据收集
     12---搭建react打包环境
     13---todos练习到初始化动态显示
+    14---Header组件--添加
+    15---Item组件--移入移出效果
+    16---Item组件--勾选效果
+    17---Item组件--删除
+    18---Footer组件

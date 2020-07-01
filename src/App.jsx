@@ -11,12 +11,39 @@ import './App.css'
 2. 处理标签的style属性: 属性值必须用{{}}
 */
 export default class App extends Component {
-  state = {
-    todos: [
+  state = { // 需要更新显示的数据放在state中
+    todos: [ 
+      // {id: 1, title: 'aa', completed: false},
       {id: 1, title: '吃饭', completed: false},
       {id: 2, title: '睡觉', completed: true},
       {id: 3, title: '打代码', completed: false},
-    ]
+    ],
+  }
+
+  id = 4  // 给组件对象添加一个id属性  它与界面无关   不需要它是响应式的
+
+  /* 
+  添加TODO
+  */
+  addTodo = (title) => {
+    // 创建一个新的todo
+    const todo = {
+      // id: Date.now(),
+      id: this.id++,
+      title,
+      completed: false
+    }
+
+    // 添加到todos中去
+    /* 错误做法: 直接修改的状态数据 */
+    // const {todos} = this.state
+    // todos.unshift(todo) // 直接修改的状态数据  ==> 不要这么做
+
+    /* 正确做法: 产生新的状态数据 */
+    const todos = [todo, ...this.state.todos] // 没有直接修改原状态数据todos
+
+    // 更新状态
+    this.setState({todos})
   }
 
   render() {
@@ -24,7 +51,7 @@ export default class App extends Component {
     return (
       <div className="todo-container">
       <div className="todo-wrap">
-        <Header />
+        <Header addTodo={this.addTodo}/>
         <List todos={todos}/>
         <Footer />
        </div>
