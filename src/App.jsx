@@ -61,17 +61,42 @@ export default class App extends Component {
   更新指定id的todo的completed值
   */
   updateTodo = (id, checked) => {
-  // 得到一个todos新状态
-  const todos = this.state.todos.map(todo => {
-    // id对应的todo, 要产生一个新的todo, 其它todo不用变
-    if (id===todo.id) {
-      return {...todo, completed: checked}
-    } 
-    return todo
-  })
+    // 产生一个todos新状态
+    const todos = this.state.todos.map(todo => {
+      // id对应的todo, 要产生一个新的todo, 其它todo不用变
+      if (id===todo.id) {
+        return {...todo, completed: checked}
+      } 
+      return todo
+    })
 
-  // 更新状态
-  this.setState({todos})
+    // 更新状态
+    this.setState({todos})
+  }
+
+  /* 
+  全选/全不选
+  */
+  checkAllTodos = (checked) => {
+    // 产生一个todos新状态
+    const todos = this.state.todos.map(todo => {
+      // 每个todo都要产生一个新的
+      return {...todo, completed: checked}
+    })
+
+    // 更新状态
+    this.setState({todos})
+  }
+
+  /* 
+  删除所有完成的todo
+  */
+  deleteCompletedTodos = () => {
+    // 产生一个todos新状态
+    const todos = this.state.todos.filter(todo => !todo.completed)
+
+    // 更新状态
+    this.setState({todos})
   }
 
   render() {
@@ -81,7 +106,7 @@ export default class App extends Component {
       <div className="todo-wrap">
         <Header addTodo={this.addTodo}/>
         <List todos={todos} deleteTodo={this.deleteTodo} updateTodo={this.updateTodo}/>
-        <Footer />
+        <Footer todos={todos} checkAllTodos={this.checkAllTodos} deleteCompletedTodos={this.deleteCompletedTodos}/>
        </div>
     </div>
     )
