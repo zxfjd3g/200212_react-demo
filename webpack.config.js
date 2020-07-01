@@ -88,7 +88,7 @@ module.exports = {
         quiet:true,//输出少量的提示信息
         proxy: {
             '/api': {//这个/api其实是为了告诉代理，以后什么样的请求，需要给我代理转发
-                target: 'http://localhost:4000',
+                target: 'http://localhost:3000',
                 //转发的目标地址，不需要路径，因为转发的时候会把发送请求的路径默认频道目标后面
                 //我们发http://localhost:8080/api/users/info
                 //最终转发的目标会变为http://localhost:4000/api/users/info

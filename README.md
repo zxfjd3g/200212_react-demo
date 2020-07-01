@@ -43,6 +43,14 @@
 		必须通过this.setState({xxx: value})来更新
 		不要直接修改state数据
 
+
+## 兄弟组件间通信: 使用pub-sub
+	订阅消息(接收数据): 
+		const token = PubSub.subscribe('msgName', (msgName, data) => {});
+		const token2 = PubSub.subscribe('msgName', (msgName, data) => {});
+	发布消息(发送数据): PubSub.publish('msgName', data)
+	取消订阅: PubSub.unsubscribe(token/msgName);
+
 ## 代码片断
 	clg→    console.log(object)
 	imp→    import moduleName from 'module'
@@ -75,3 +83,4 @@
     17---Item组件--删除
     18---Footer组件
 	19---users练习静态组件
+	20---users练习动态组件-ajax请求
