@@ -75,10 +75,16 @@ export default class Main extends Component {
 
   componentDidMount () {
     // 订阅消息
-    PubSub.subscribe('SEARCH', (msgName, searchName) => {
+    this.token = PubSub.subscribe('SEARCH', (msgName, searchName) => {
       // this.getUsers(searchName)
       this.getUsers_fetch(searchName)
     })
+  }
+
+  componentWillUnmount () {
+    // 取消消息订阅
+    // PubSub.unsubscribe('SEARCH')
+    PubSub.unsubscribe(this.token)
   }
 
 

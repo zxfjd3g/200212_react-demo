@@ -6,6 +6,12 @@ export default class Search extends Component {
     searchName: ''
   }
 
+  chanageSearchName = (searchName) => {
+    this.setState({
+      searchName
+    })
+  }
+
   handleChange = (e) => {
     this.setState({
       searchName: e.target.value.trim()
