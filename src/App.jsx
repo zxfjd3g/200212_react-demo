@@ -46,13 +46,41 @@ export default class App extends Component {
     this.setState({todos})
   }
 
+  /* 
+  删除指定id的TODO
+  */
+  deleteTodo = (id) => {
+    // 得到一个todos新状态
+    const todos = this.state.todos.filter(todo => todo.id!==id)
+
+    // 更新状态
+    this.setState({todos})
+  }
+
+  /* 
+  更新指定id的todo的completed值
+  */
+  updateTodo = (id, checked) => {
+  // 得到一个todos新状态
+  const todos = this.state.todos.map(todo => {
+    // id对应的todo, 要产生一个新的todo, 其它todo不用变
+    if (id===todo.id) {
+      return {...todo, completed: checked}
+    } 
+    return todo
+  })
+
+  // 更新状态
+  this.setState({todos})
+  }
+
   render() {
     const {todos} = this.state
     return (
       <div className="todo-container">
       <div className="todo-wrap">
         <Header addTodo={this.addTodo}/>
-        <List todos={todos}/>
+        <List todos={todos} deleteTodo={this.deleteTodo} updateTodo={this.updateTodo}/>
         <Footer />
        </div>
     </div>

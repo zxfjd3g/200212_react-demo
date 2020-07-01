@@ -10,16 +10,19 @@ import Item from '@/components/Item'
 export default class List extends Component {
 
   static propTypes = {
-    todos: PropTpes.array.isRequired
+    todos: PropTpes.array.isRequired,
+    deleteTodo: PropTpes.func.isRequired,
+    updateTodo: PropTpes.func.isRequired,
   }
 
   render() {
-    const {todos} = this.props
+    const {todos, deleteTodo, updateTodo} = this.props
 
     return (
       <ul className="todo-main">
         {
-          todos.map(todo => <Item key={todo.id} todo={todo}/>)
+          todos.map(todo => <Item key={todo.id} todo={todo} 
+            deleteTodo={deleteTodo} updateTodo={updateTodo}/>)
         }
       </ul>
     )
