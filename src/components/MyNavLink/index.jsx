@@ -10,8 +10,15 @@ import { NavLink, withRouter } from 'react-router-dom'
   标签对象  ==> 组件标签体是一个标签
   标签对象的数组 ==> 组件标签体是多个标签
 */
+
 function MyNavLink(props) {
-  return <NavLink activeClassName="myActive" {...props} />
+
+  /* 正确的写法 */
+  const {staticContext, ...otherProps} = props
+  return <NavLink activeClassName="myActive" {...otherProps} />
+  
+  /* 错误的写法 */
+  // return <NavLink activeClassName="myActive" {...props} />
 }
 
 export default withRouter(MyNavLink)
