@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 /* 
 对NavLink进行二次封装, 默认就会我们指定的样式
 将接收的所有props都传递给我的子组件NavLink  ==> 透传  ==>使用...
@@ -10,6 +10,14 @@ import { NavLink } from 'react-router-dom'
   标签对象  ==> 组件标签体是一个标签
   标签对象的数组 ==> 组件标签体是多个标签
 */
-export default function MyNavLink(props) {
+function MyNavLink(props) {
   return <NavLink activeClassName="myActive" {...props} />
 }
+
+export default withRouter(MyNavLink)
+
+/* 
+withRouter函数:
+接收一个组件(函数), 返回一个新的组件(函数)
+withRouter就是一个高阶函数 ==> 高阶组件(接收组件, 返回新组件)
+*/

@@ -21,7 +21,7 @@ export default class App extends Component {
   
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div>
           <div className="row">
             <div className="col-xs-offset-2 col-xs-8">
@@ -53,7 +53,7 @@ export default class App extends Component {
             </div>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     )
   }
 }

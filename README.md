@@ -104,10 +104,37 @@
 		NavLink: 导航路由链接, 当前路由链接就会有特定类名, 用来定义特定样式
 		Link: 一般路由链接, 所有都一样, 用于不需要指定当前路由链接的特定样式的情况
 	相关对象或函数:
+		props.history对象: 包含控制路由跳转的一些方法, 如: push()/replace()/goBack()
+		props.location对象:包含路由相关信息的对象, 如: pathname / search / state
+		props.match对象:包含路由相关信息的对象, 如: params
+		
+		withRouter函数: 包装非路由组件返回一个新组件 ==> 向非路由组件传递上面3个属性
+				==> 如果一个非路由组件要操作路由, 就需要用withRouter包装
 
 	跳转路由的2种方式
+		声明式: 通过路由链接点击跳转  ==> 用于跳转前没有逻辑处理的场景
+		编程式: 通过history.push()/replace() ==> 用于跳转前有逻辑处理的场景
 
 	携带参数的3种方式
+		params: n个字符串   ==> 用得最多
+			携带数据: /home/message/detail/12/abc  
+			读取数据: this.props.match.params.id
+			注意: 注意路由时指定标识名称  /home/message/detail/:id/:xxx
+		query: n个字符串  ==> 用得少
+			携带数据: /home/message/detail/12/abc?name=tom&age=12
+			读取数据: this.props.location.search  ==> ?name=tom&age=12
+			注意: 得到数据不能直接使用, 需要手动处理 ==> 可以使用qs工具包
+		state: 一个任意类型数据, 一般是对象或数组 ==> 用得少些
+			携带数据: this.props.history.push(path, state数据对象/数组)
+			读取数据: this.props.location.state
+			注意: history模式才可用, hash模式不可用
+
+	组件一个特别的props: children
+		是谁? 组件标签体内容
+		值是多少?
+		  字符串   ==> 组件标签体是文本
+		  标签对象  ==> 组件标签体是一个标签
+		  标签对象的数组 ==> 组件标签体是多个标签
 
 
 
@@ -130,7 +157,7 @@
     4---组件三大属性1_state
     5---call&apply&bind理解使用与自定义视频学习
   
-	  6---组件三大属性2-props
+	6---组件三大属性2-props
     7---组件三大属性3-refs
     8---事件处理
     9---表单处理: 受控组件与非受控组件
@@ -139,13 +166,15 @@
     12---搭建react打包环境
     13---todos练习到初始化动态显示
     
-		14---Header组件--添加
+	14---Header组件--添加
     15---Item组件--移入移出效果
     16---Item组件--勾选效果
     17---Item组件--删除
     18---Footer组件
-		19---users练习静态组件
-		20---users练习动态组件-ajax请求
-		21---react路由基本使用
-
+	19---users练习静态组件
+	20---users练习动态组件-ajax请求
+	21---react路由基本使用
+	22---二级路由与封装MyNavLink
+	22---向路由组件传递参数(3种)
+	22---跳转路由(2种)
 		
