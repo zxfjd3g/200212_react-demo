@@ -12,13 +12,11 @@ import { NavLink, withRouter } from 'react-router-dom'
 */
 
 function MyNavLink(props) {
-
-  /* 正确的写法 */
-  const {staticContext, ...otherProps} = props
-  return <NavLink activeClassName="myActive" {...otherProps} />
   
-  /* 错误的写法 */
-  // return <NavLink activeClassName="myActive" {...props} />
+  // otherProps: 是包含props对象中除了左侧staticContext属性的所有其属性的对象
+  const {staticContext, ...otherProps} = props
+
+  return <NavLink activeClassName="myActive" {...otherProps} />
 }
 
 export default withRouter(MyNavLink)
