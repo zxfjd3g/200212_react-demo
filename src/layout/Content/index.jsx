@@ -31,7 +31,7 @@ export default class Content extends Component {
     })
 
     // 最后添加一个重定向路由
-    routeTags.push(<Redirect to={routes[0].path}/>)
+    routeTags.push(<Redirect key={routes[0].path+'_red'} to={routes[0].path}/>)
 
     /* 
     请求: /welcome/frontend
