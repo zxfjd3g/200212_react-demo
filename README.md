@@ -145,8 +145,23 @@
 	2) 根据配置动态生成路由链接<NavLink>
 	3) 根据配置动态生成路由<Route>
 
+	二级子路由: 在一级子路由界面局部显示 ==> <Route>写在一级路由组件中
+
+
+	/welcome
+		/welcome/frontend
+		/welcome/backend
+	/pins
+		/pins/frontend
+		/pins/hot
+	/books
+		/books/frontend
+		/books/backend
+
+
 ## 代码片断
 	clg→    console.log(object)
+
 	imp→    import moduleName from 'module'
 	imd→    import { destructuredModule } from 'module'
 	
@@ -184,4 +199,7 @@
 	22---二级路由与封装MyNavLink
 	22---向路由组件传递参数(3种)
 	22---跳转路由(2种)
+
+	23---根据配置动态生成导航路由链接
+	24---根据配置动态生成路由
 		

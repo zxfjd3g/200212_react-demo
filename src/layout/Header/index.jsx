@@ -11,7 +11,7 @@ class Header extends Component {
   /* 
   根据routes生成一级链接li的数组
   */
-  renderLis = () => {
+  renderLis = (routes) => {
     /* const lis = []
     routes.forEach(item => {
       // path: '/welcome', // 路由路径
@@ -45,11 +45,7 @@ class Header extends Component {
     const routeData = routes.find(item => path.startsWith(item.path)) // 前面部分相同就可以
     if (routeData && routeData.children) {
       // 根据children数组生成包含路由链接的lis的数组
-      const lis = routeData.children.map(item => (
-        <li key={item.path}>
-          <NavLink to={item.path}>{item.name}</NavLink>
-        </li>
-      ))
+      const lis = this.renderLis(routeData.children)
       return lis
     }
   }
@@ -58,7 +54,7 @@ class Header extends Component {
     return (
       <div>
         <ul>
-         {this.renderLis()}
+         {this.renderLis(routes)}
         </ul>
 
         <ul>
