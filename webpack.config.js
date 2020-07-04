@@ -32,7 +32,8 @@ module.exports = {
                             '@babel/preset-react', // jsx ==> js
                         ], 
                         plugins: [
-                            "@babel/plugin-proposal-class-properties" // 解析类属性 组件类中的state
+                            ["@babel/plugin-proposal-decorators", { "legacy": true }], // 必须先配置
+                            ["@babel/plugin-proposal-class-properties", { "loose" : true }] // 解析类属性 组件类中的state
                         ]
                     }
                 }
