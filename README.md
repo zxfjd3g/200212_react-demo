@@ -73,8 +73,13 @@
 		取消订阅: PubSub.unsubscribe(token/msgName);
 
 	4) redux
+		任意组件间(非父子组件)通信
+		它的功能比pubsub更强大, react项目基本都用redux或基于redux的插件来管理多个组件共享状态
 
 	5) context
+		祖孙组件间直接相互通信
+		利用Provder来向后代组件提供数据
+		后代组件通过Consumer来读取数据(祖--> 孙), 也可以调用传递过的函数(孙-->祖)
 
 
 ## ES6常用新语法
