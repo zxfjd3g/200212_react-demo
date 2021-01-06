@@ -9,7 +9,7 @@
     "@babel/core": "^7.9.6",
     "@babel/polyfill": "^7.10.1",
     "@babel/preset-env": "^7.9.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-loader": "^8.0.0-beta.0",
     "copy-webpack-plugin": "^5.1.1",
     "prop-types": "15.7.2",
